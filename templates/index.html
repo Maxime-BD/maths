@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PPTX Generator</title>
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    <h1>PPTX Generator</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".txt" required>
+        <input type="file" name="image" accept=".png, .jpg, .jpeg" required>
+        <label for="color">Text Color:</label>
+        <select name="color" id="color">
+            <option value="white">White</option>
+            <option value="black">Black</option>
+        </select>
+        <input type="submit" value="Generate PPTX">
+    </form>
+</body>
+</html>

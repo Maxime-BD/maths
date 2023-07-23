@@ -1,0 +1,565 @@
+.file-upload-container{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  color: white;
+}
+.content{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.button {
+  position: relative;
+  padding: 10px 22px;
+  border-radius: 6px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  background-color: #7d2ae8;
+  transition: all 0.2s ease;
+}
+
+.button:active {
+  transform: scale(0.96);
+}
+
+.button:before,
+.button:after {
+  position: absolute;
+  content: "";
+  width: 150%;
+  left: 50%;
+  height: 100%;
+  transform: translateX(-50%);
+  z-index: -1000;
+  background-repeat: no-repeat;
+}
+
+.button:hover:before {
+  top: -70%;
+  background-image: radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+    radial-gradient(circle, transparent 20%, #7d2ae8 20%, transparent 30%),
+    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+    radial-gradient(circle, transparent 10%, #7d2ae8 15%, transparent 20%),
+    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+    radial-gradient(circle, #7d2ae8 20%, transparent 20%);
+  background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%,
+    10% 10%, 18% 18%;
+  background-position: 50% 120%;
+  animation: greentopBubbles 0.6s ease;
+}
+
+@keyframes greentopBubbles {
+  0% {
+    background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%,
+      40% 90%, 55% 90%, 70% 90%;
+  }
+
+  50% {
+    background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%,
+      50% 50%, 65% 20%, 90% 30%;
+  }
+
+  100% {
+    background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%,
+      50% 40%, 65% 10%, 90% 20%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
+}
+
+.button:hover::after {
+  bottom: -70%;
+  background-image: radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+    radial-gradient(circle, transparent 10%, #7d2ae8 15%, transparent 20%),
+    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+    radial-gradient(circle, #7d2ae8 20%, transparent 20%);
+  background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 20% 20%, 18% 18%;
+  background-position: 50% 0%;
+  animation: greenbottomBubbles 0.6s ease;
+}
+
+@keyframes greenbottomBubbles {
+  0% {
+    background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%,
+      70% -10%, 70% 0%;
+  }
+
+  50% {
+    background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%,
+      105% 0%;
+  }
+
+  100% {
+    background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%,
+      110% 10%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
+}
+.file-upload {
+  margin-right: 20px;
+}
+
+.file-upload input[type="file"] {
+  display: none;
+}
+
+.file-upload label {
+  background-color: #0036B1;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.file-upload label:hover {
+  background-color: #00339A;
+}
+
+.file-upload span {
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.radio-inputs {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 0.5rem;
+  background-color: #EEE;
+  box-sizing: border-box;
+  box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
+  padding: 0.25rem;
+  width: 300px;
+  font-size: 14px;
+}
+
+.radio-inputs .radio {
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+.radio-inputs .radio input {
+  display: none;
+}
+
+.radio-inputs .radio .name {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  border: none;
+  padding: .5rem 0;
+  color: rgba(51, 65, 85, 1);
+  transition: all .15s ease-in-out;
+}
+
+.radio-inputs .radio input:checked + .name {
+  background-color: #fff;
+  font-weight: 600;
+}
+.custum-file-upload .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custum-file-upload .icon svg {
+  height: 80px;
+  fill: rgba(75, 85, 99, 1);
+}
+
+.custum-file-upload .text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custum-file-upload .text span {
+  font-weight: 400;
+  color: rgba(75, 85, 99, 1);
+}
+
+.custum-file-upload input {
+  display: none;
+}
+
+/* {
+  outline: 1px solid red;
+}*/
+@font-face {
+  font-family: 'nasa'; /* Choose a name for your custom font */
+  src: url('Nasa.ttf') format('truetype'); /* Replace 'path/to/your/font.ttf' with the correct URL or path to your TTF file */
+}
+
+  @import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap');
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.out {
+  animation: out 1s ease-in-out; /* Add the fade-out animation */
+}
+
+.logo img {
+  position: absolute;
+right: 20px;
+bottom: 10px;
+  max-width: 200px;
+  height: auto;
+  animation: trlogo 1s ease-in-out;
+}
+.logo{
+display: none;
+}
+.center {
+  display: flex;
+  justify-content: center; /* Horizontal centering */
+  align-items: center; /* Vertical centering */
+  height: 100%; /* Ensure the container takes up the full height */
+}
+@keyframes trlogo{
+from {
+	right: -90px;
+}
+to {
+	right: 20px;
+
+}
+}
+@keyframes inlogo {
+  from {
+    opacity: 0;
+ backdrop-filter: blur(0px);
+   position: absolute;
+right: 20px;
+bottom: 10px;
+  max-width: 200px;
+  height: auto;
+  }
+  to {
+    opacity: 1;
+     backdrop-filter: blur(50px);
+       position: absolute;
+right: 20px;
+bottom: 10px;
+  max-width: 200px;
+  height: auto;
+  }
+}
+@keyframes in {
+  from {
+    opacity: 0;
+ backdrop-filter: blur(0px);
+  }
+  to {
+    opacity: 1;
+     backdrop-filter: blur(50px);
+  }
+}
+@keyframes out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+input[type=number]{
+    -moz-appearance: textfield;
+}
+.loader{
+display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+form {
+  display: flex;
+  justify-content: center; /* Optional: You can use 'flex-start', 'flex-end', 'space-between', etc. */
+  align-items: center;
+}
+.content {
+  display: none;
+	      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+body{
+background-color: #150078;
+display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+background-attachment: fixed;
+margin: 0px;
+height: 100hv;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  position: relative;
+  font-family: 'CustomFont', sans-serif;
+   }
+   .blur {
+-webkit-backdrop-filter: blur(50px);
+backdrop-filter: blur(50px);
+}
+.title{
+	transform: translate(-70%, 0%);
+		position:absolute;
+		padding: 20px;
+		height: 100px;
+		width:200px;
+		top:0;
+	display: none;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+}
+
+.input1 {
+  min-height: 50px;
+  max-width: 120px;
+  padding: 0 1rem;
+  color: #fff;
+  font-size: 15px;
+  border: 1px solid #5e4dcd;
+  border-radius: 6px 0 0 6px;
+  background-color: transparent;
+  box-shadow: inset 0 0 1.6em -0.6em #714da6;
+}
+.input2 {
+  min-height: 50px;
+  max-width: 100px;
+  padding: 0 1rem;
+  color: #fff;
+  font-size: 15px;
+  border: 1px solid #5e4dcd;
+  border-radius: 0px;
+  background-color: transparent;
+  box-shadow: inset 0 0 1.6em -0.6em #714da6;
+}
+
+.button--submit {
+  min-height: 52px;
+  padding: .5em 1em;
+  border: none;
+  border-radius: 0 6px 6px 0;
+  background-color: #5e4dcd;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color .3s ease-in-out;
+  box-shadow: inset 0 0 1.6em -0.6em #fff;
+}
+
+.button--submit:hover {
+  background-color: #5e5dcd;
+}
+
+
+
+.input1:focus, .input1:focus-visible .input2:focus, .input2:focus-visible{
+  border-color: #3898EC;
+  outline: none;
+}
+.red-border{
+background-color: #f54029;
+}
+.btn-container {
+	height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+    position:absolute;
+  top:0px;
+  right:0px;
+  bottom:0px;
+  left:0px;
+  gap: 5%;
+
+}
+.items:nth-child(1) {
+  display: block;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: center;
+  order: 0;
+}
+
+/*
+.items:nth-child(2) {
+  display: block;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+  order: 0;
+}
+*/
+@keyframes square-animation {
+ 0% {
+  left: 0;
+  top: 0;
+ }
+
+ 10.5% {
+  left: 0;
+  top: 0;
+ }
+
+ 12.5% {
+  left: 32px;
+  top: 0;
+ }
+
+ 23% {
+  left: 32px;
+  top: 0;
+ }
+
+ 25% {
+  left: 64px;
+  top: 0;
+ }
+
+ 35.5% {
+  left: 64px;
+  top: 0;
+ }
+
+ 37.5% {
+  left: 64px;
+  top: 32px;
+ }
+
+ 48% {
+  left: 64px;
+  top: 32px;
+ }
+
+ 50% {
+  left: 32px;
+  top: 32px;
+ }
+
+ 60.5% {
+  left: 32px;
+  top: 32px;
+ }
+
+ 62.5% {
+  left: 32px;
+  top: 64px;
+ }
+
+ 73% {
+  left: 32px;
+  top: 64px;
+ }
+
+ 75% {
+  left: 0;
+  top: 64px;
+ }
+
+ 85.5% {
+  left: 0;
+  top: 64px;
+ }
+
+ 87.5% {
+  left: 0;
+  top: 32px;
+ }
+
+ 98% {
+  left: 0;
+  top: 32px;
+ }
+
+ 100% {
+  left: 0;
+  top: 0;
+ }
+}
+
+.loader {
+ position: relative;
+ width: 96px;
+ height: 96px;
+ transform: rotate(45deg);
+}
+
+.loader-square {
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 28px;
+ height: 28px;
+ margin: 2px;
+ border-radius: 0px;
+ background: white;
+ background-size: cover;
+ background-position: center;
+ background-attachment: fixed;
+ animation: square-animation 10s ease-in-out infinite both;
+}
+
+.loader-square:nth-of-type(0) {
+ animation-delay: 0s;
+}
+
+.loader-square:nth-of-type(1) {
+ animation-delay: -1.4285714286s;
+}
+
+.loader-square:nth-of-type(2) {
+ animation-delay: -2.8571428571s;
+}
+
+.loader-square:nth-of-type(3) {
+ animation-delay: -4.2857142857s;
+}
+
+.loader-square:nth-of-type(4) {
+ animation-delay: -5.7142857143s;
+}
+
+.loader-square:nth-of-type(5) {
+ animation-delay: -7.1428571429s;
+}
+
+.loader-square:nth-of-type(6) {
+ animation-delay: -8.5714285714s;
+}
+
+.loader-square:nth-of-type(7) {
+ animation-delay: -10s;
+ }
